@@ -3,14 +3,14 @@
  
 **An end-to-end machine learning pipeline for automated cattle udder health monitoring**
  
-[![Python](https://api.gitlytics.dev/api/badge/tech.svg?slug=python&style=icon_label_value&label=Language&label_color=%23555555&variant=plastic&value=Python%203.8%2B&value_color=%233776AB)](https://www.python.org/)
-[![PyTorch](https://api.gitlytics.dev/api/badge/tech.svg?slug=pytorch&style=icon_label_value&label=AI%2FML&label_color=%23555555&variant=plastic&value=PyTorch&value_color=%23EE4C2C)](https://pytorch.org/)
-[![YOLOv8](https://api.gitlytics.dev/api/badge/tech.svg?slug=pytorch&style=icon_label_value&label=ObjectDetection&label_color=%23555555&variant=plastic&value=YOLOv8&value_color=%230099FF)](https://ultralytics.com/)
-[![Gradio](https://api.gitlytics.dev/api/badge/tech.svg?slug=gradio&style=icon_label_value&label=UI&label_color=%23555555&variant=plastic&value=Gradio&value_color=%23F97316)](https://gradio.app/)
-[![License](https://api.gitlytics.dev/api/badge/tech.svg?slug=license&style=icon_label_value&label=License&label_color=%23555555&variant=plastic&value=Apache%202.0&value_color=%2328a745)](https://github.com/ameyac11/Dairy_Mate_Round1/blob/main/LICENSE)
-[![HF Space](https://api.gitlytics.dev/api/badge/tech.svg?slug=huggingface&style=icon_label_value&label=HF%20Space&label_color=%23555555&variant=plastic&value=Live%20Demo&value_color=%23FFD21E)](https://huggingface.co/spaces/ameyac11/Mastitis_Cow_Detection)
+[![Python](https://api.gitlytics.dev/api/badge/tech.svg?slug=python&style=icon_label_value&label=Language&variant=flat&value=Python%203.8%2B&value_color=%233776AB)](https://www.python.org/)
+[![PyTorch](https://api.gitlytics.dev/api/badge/tech.svg?slug=pytorch&style=icon_label_value&label=AI%2FML&variant=flat&value=PyTorch&value_color=%23EE4C2C)](https://pytorch.org/)
+[![YOLOv8](https://api.gitlytics.dev/api/badge/tech.svg?slug=pytorch&style=icon_label_value&label=ObjectDetection&variant=flat&value=YOLOv8&value_color=%230099FF)](https://ultralytics.com/)
+[![Gradio](https://api.gitlytics.dev/api/badge/tech.svg?slug=gradio&style=icon_label_value&label=UI&variant=flat&value=Gradio&value_color=%23F97316)](https://gradio.app/)
+[![License](https://api.gitlytics.dev/api/badge/tech.svg?slug=license&style=icon_label_value&label=License&variant=flat&value=Apache%202.0&value_color=%2328a745)](https://github.com/ameyachopade/Mastitis_Cow_Disease_Detection/blob/main/LICENSE)
+[![HF Space](https://api.gitlytics.dev/api/badge/tech.svg?slug=huggingface&style=icon_label_value&label=HF%20Space&variant=flat&value=Live%20Demo&value_color=%23FFD21E)](https://huggingface.co/spaces/ameyac11/Mastitis_Cow_Detection)
  
-🚀 **[Try the Live Demo](https://huggingface.co/spaces/ameyac11/Mastitis_Cow_Detection)**
+🚀 **[![Live Demo](https://api.gitlytics.dev/api/badge/tech.svg?slug=huggingface&style=icon_label_value&label=HF%20Space&value=Live%20Demo&variant=flat)](https://huggingface.co/spaces/ameyac11/Mastitis_Cow_Detection)**
  
 </div>
 ---
@@ -30,11 +30,11 @@ Built for **Round 1 – Mastitis Detection Model Challenge**
  
 This project implements an end-to-end ML and computer vision pipeline for **Cattle Mastitis Detection** using raw udder photographs. The pipeline includes:
  
-1. **Zero-Shot Auto-Labeling** — Grounding DINO + SAM automatically outlines udders in images, generating YOLO training masks with no manual drawing.
-2. **YOLOv8-seg Segmentation** — A custom-trained lightweight segmentation model isolates the udder in real-time, ignoring legs and background clutter.
-3. **Inflammation Mapping** — Red skin irritation hotspots are detected inside the YOLO mask using HSV color thresholding.
-4. **CNN Classification** — Fine-tuned ResNet-50 and MobileNet-V3 classify the isolated udder as **Healthy** or **Mastitis**.
-5. **Gradio Web UI** — An interactive dashboard for uploading images and viewing diagnostic results.
+1. **Zero-Shot Auto-Labeling** - Grounding DINO + SAM automatically outlines udders in images, generating YOLO training masks with no manual drawing.
+2. **YOLOv8-seg Segmentation** - A custom-trained lightweight segmentation model isolates the udder in real-time, ignoring legs and background clutter.
+3. **Inflammation Mapping** - Red skin irritation hotspots are detected inside the YOLO mask using HSV color thresholding.
+4. **CNN Classification** - Fine-tuned ResNet-50 and MobileNet-V3 classify the isolated udder as **Healthy** or **Mastitis**.
+5. **Gradio Web UI** - An interactive dashboard for uploading images and viewing diagnostic results.
 ---
  
 ## 📁 Project Structure
@@ -72,14 +72,14 @@ Dairy-Mate-Mastitis-Detection/
  
 ## 🚀 Quick Start
  
-### Step 1 — Install Dependencies
+### Step 1 - Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
  
 ---
  
-### Step 2 — Auto-Label the Dataset
+### Step 2 - Auto-Label the Dataset
 > Run this **once** to automatically detect and outline udders in all 100 images using Grounding DINO + SAM. Outputs annotated label files into `dataset_yolo/`.
 ```bash
 python src/auto_annotate.py
@@ -87,7 +87,7 @@ python src/auto_annotate.py
  
 ---
  
-### Step 3 — Build the Classification Catalog
+### Step 3 - Build the Classification Catalog
 > Run this **once** after Step 2 to scan the dataset, compute udder bounding boxes and inflammation indices, and save metadata to `Dataset/annotations.json`.
 ```bash
 python src/annotate.py
@@ -95,7 +95,7 @@ python src/annotate.py
  
 ---
  
-### Step 4 — Train the YOLOv8-seg Segmentation Model
+### Step 4 - Train the YOLOv8-seg Segmentation Model
 > Run this to train the lightweight YOLOv8-seg model on the auto-labeled dataset. Saves the best weights to `Model/best_udder_yolo.pt`.
 ```bash
 python src/train_yolo.py
@@ -103,7 +103,7 @@ python src/train_yolo.py
  
 ---
  
-### Step 5 — Train the Classification Models
+### Step 5 - Train the Classification Models
 > Run this to fine-tune ResNet-50 and MobileNet-V3 on the annotated dataset. Saves weights to `Model/`.
 ```bash
 python src/train.py
@@ -111,7 +111,7 @@ python src/train.py
  
 ---
  
-### Step 6 — Launch the Web Application
+### Step 6 - Launch the Web Application
 > Run this to start the interactive Gradio dashboard. Open your browser at **`http://127.0.0.1:7860`**.
 ```bash
 python src/app.py
@@ -131,10 +131,10 @@ Or open `app.ipynb` in Jupyter and run all cells.
 | **Data Annotation** | Instead of manually drawing 100 udder masks, we used **Grounding DINO + SAM** in a zero-shot auto-labeling step (`auto_annotate.py`) to generate accurate udder segmentation masks automatically, saving annotation time while keeping labels consistent. |
 | **Image Segmentation** | A lightweight **YOLOv8-seg** model was trained on the auto-generated masks (`train_yolo.py`) to isolate the udder region in real time and exclude legs/background clutter from downstream analysis. |
 | **Preprocessing** | `annotate.py` crops each image to the YOLO-predicted udder region, computes an inflammation index via HSV color thresholding on skin redness, and compiles everything into `Dataset/annotations.json` as model-ready input. |
-| **Model Selection** | We chose **ResNet-50** and **MobileNet-V3** as parallel classifiers — ResNet-50 for stronger accuracy as a benchmark, MobileNet-V3 as a lightweight option suited for edge/real-time deployment on farms. Both are fine-tuned rather than trained from scratch, which is appropriate given the small (100-image) dataset. |
+| **Model Selection** | We chose **ResNet-50** and **MobileNet-V3** as parallel classifiers - ResNet-50 for stronger accuracy as a benchmark, MobileNet-V3 as a lightweight option suited for edge/real-time deployment on farms. Both are fine-tuned rather than trained from scratch, which is appropriate given the small (100-image) dataset. |
 | **Model Training & Development** | `train.py` fine-tunes both classifiers on the segmented, preprocessed udder crops and saves weights in `.safetensors` format under `Model/`. |
  
-**Why this architecture?** Splitting segmentation (YOLOv8-seg) from classification (ResNet-50/MobileNet-V3) rather than using one end-to-end network lets each stage be optimized independently: the segmentation step only needs to learn "where is the udder," which auto-labeling handles well even with limited data, while the classifier only has to reason about the isolated udder region — reducing background noise and making the most of a small, class-imbalanced (25 healthy / 75 mastitis) dataset.
+**Why this architecture?** Splitting segmentation (YOLOv8-seg) from classification (ResNet-50/MobileNet-V3) rather than using one end-to-end network lets each stage be optimized independently: the segmentation step only needs to learn "where is the udder," which auto-labeling handles well even with limited data, while the classifier only has to reason about the isolated udder region - reducing background noise and making the most of a small, class-imbalanced (25 healthy / 75 mastitis) dataset.
  
 ---
  
@@ -154,4 +154,4 @@ Or open `app.ipynb` in Jupyter and run all cells.
 ## 📄 License
  
 This project is licensed under the **Apache License 2.0**.
-See the [LICENSE](https://github.com/ameyac11/Dairy_Mate_Round1/blob/main/LICENSE) file for full details.
+See the [![LICENSE](https://api.gitlytics.dev/api/badge/tech.svg?slug=github&label_color=F1F3F5&style=icon_label_value&label=License&value=Apache%202.0&variant=flat)](https://github.com/ameyachopade/Mastitis_Cow_Disease_Detection/blob/main/LICENSE) file for full details.
